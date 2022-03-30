@@ -1,15 +1,13 @@
 #include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
 
-#define SCHOOL_SIDE 5
+#define MATRIX_SIDE 5
 
 // Funcao que imprime o estado atual do mapa
-void imprimirMapa(char matriz[SCHOOL_SIDE][SCHOOL_SIDE], int x, int y, int itens)
+void imprimirMapa(char matriz[MATRIX_SIDE][MATRIX_SIDE], int x, int y, int itens)
 {
-  for (int i = 0; i < SCHOOL_SIDE; i++)
+  for (int i = 0; i < MATRIX_SIDE; i++)
   {
-    for (int j = 0; j < SCHOOL_SIDE; j++)
+    for (int j = 0; j < MATRIX_SIDE; j++)
     {
       // Caso o walter nao esteja na posicao, printa ela normalemnte
       if (i != x || j != y)
@@ -28,7 +26,7 @@ void imprimirMapa(char matriz[SCHOOL_SIDE][SCHOOL_SIDE], int x, int y, int itens
 }
 
 // Funcao que popula o mapa
-void popularMapa(char escola[][SCHOOL_SIDE])
+void popularMapa(char escola[][MATRIX_SIDE])
 {
   escola[0][0] = '5';
   escola[0][3] = '1';
@@ -61,13 +59,13 @@ void handleDirection(int *x, int *y, char dir)
     }
     break;
   case 's':
-    if (*x + 1 < SCHOOL_SIDE)
+    if (*x + 1 < MATRIX_SIDE)
     {
       *x = *x + 1;
     }
     break;
   case 'd':
-    if (*y + 1 < SCHOOL_SIDE)
+    if (*y + 1 < MATRIX_SIDE)
     {
       *y = *y + 1;
     }
@@ -77,14 +75,14 @@ void handleDirection(int *x, int *y, char dir)
 
 int main(void)
 {
-  char escola[SCHOOL_SIDE][SCHOOL_SIDE];
+  char escola[MATRIX_SIDE][MATRIX_SIDE];
 
-  printf("Walter: Jesse, vou pegar os produtos químicos\n\n");
+  printf("Walter: Jesse, vou pegar os produtos quimicos\n\n");
 
   // Inicializa todas as posições com valor zero
-  for (int i = 0; i < SCHOOL_SIDE; i++)
+  for (int i = 0; i < MATRIX_SIDE; i++)
   {
-    for (int j = 0; j < SCHOOL_SIDE; j++)
+    for (int j = 0; j < MATRIX_SIDE; j++)
     {
       escola[i][j] = '_';
     }
@@ -179,7 +177,7 @@ int main(void)
         }
         else
         {
-          printf("Parabens, voce pegou tudo\n");
+          printf("Walter: Eu venci. E isso que aconteceu.\n");
           vitoria = 1;
         }
         break;
